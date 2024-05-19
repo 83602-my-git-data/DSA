@@ -1,0 +1,40 @@
+package Tester;
+
+import java.util.Scanner;
+
+import DSA.SingleCircularLinkedList;
+
+public class Tester {
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        SingleCircularLinkedList list = new SingleCircularLinkedList();
+        
+
+        while (true) {
+            System.out.println("1. Add Player");
+            System.out.println("2. Display Players");
+            System.out.println("3. Play Game");
+            System.out.println("4. Exit");
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter player name: ");
+                    String name = scanner.nextLine();
+                    list.addLast(name);
+                    break;
+                case 2:
+                    list.display();
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+        }
+    

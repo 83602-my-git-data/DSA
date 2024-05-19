@@ -1,0 +1,170 @@
+package DSA;
+
+public class SingleLinkedList {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * import java.util.Scanner;
+
+class Node {
+    String data;
+    Node next;
+
+    public Node(String data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class CircularLinkedList {
+    private Node head;
+    private Node tail;
+
+    public CircularLinkedList() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    public void addLast(String data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            newNode.next = head;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+            tail.next = head;
+        }
+    }
+
+    public void delete(Node prevNode, Node delNode) {
+        if (head == null) {
+            return;
+        }
+        if (head == delNode) {
+            if (head.next == head) {
+                head = null;
+                tail = null;
+            } else {
+                head = head.next;
+                tail.next = head;
+            }
+        } else {
+            prevNode.next = delNode.next;
+            if (delNode == tail) {
+                tail = prevNode;
+            }
+        }
+    }
+
+    public void display() {
+        if (head == null) {
+            System.out.println("The list is empty.");
+            return;
+        }
+        Node temp = head;
+        do {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        } while (temp != head);
+        System.out.println();
+    }
+
+    public Node getHead() {
+        return head;
+    }
+}
+
+ * class QueueNode {
+    String data;
+    QueueNode next;
+
+    public QueueNode(String data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class Queue {
+    private QueueNode front, rear;
+
+    public Queue() {
+        this.front = this.rear = null;
+    }
+
+    public void enqueue(String data) {
+        QueueNode newNode = new QueueNode(data);
+        if (this.rear == null) {
+            this.front = this.rear = newNode;
+            return;
+        }
+        this.rear.next = newNode;
+        this.rear = newNode;
+    }
+
+    public void displayQueue() {
+        if (front == null) {
+            System.out.println("Queue is empty");
+            return;
+        }
+        QueueNode temp = front;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
+*/
+ */

@@ -1,0 +1,77 @@
+package Tester;
+
+import java.util.Scanner;
+
+import DSA.Queue;
+import DSA.SingleCircularLinkedList;
+
+public class Tester {
+	Scanner scanner = new Scanner(System.in);
+	public static void main(String[] args) {
+		SingleCircularLinkedList list = new SingleCircularLinkedList();
+		Queue queue = new Queue();
+		
+        boolean flag = true;
+		while (flag) {
+			System.out.println("1. Add Person");
+			System.out.println("2. Display Persons");
+			System.out.println("3. Delete Last Persons");
+			System.out.println("4. Play Game");
+			System.out.println("0. Exit");
+			System.out.print("Choose an option: ");
+			int choice = scanner.nextInt();
+			scanner.nextLine(); // Consume newline
+
+			switch (choice) {
+			case 0 :
+				System.out.println("Thank you");
+				flag = false;
+				break;
+			case 1:
+				
+				System.out.print("Enter player name: ");
+				String name = scanner.nextLine();
+				list.addLast(name);
+				break;
+			case 2:
+				list.display();
+				break;
+			case 3:
+			{
+				list.deleteLast();
+				list.display();
+			}
+				break;
+			case 4:{
+				
+			}
+				break;
+			default:
+				System.out.println("Invalid choice! Try again.");
+			}
+		}
+	}
+	
+	public static void playGame(SingleCircularLinkedList sl, Queue qu, int m) {
+		System.out.print("Enter the number of passes (M): ");
+        int M = scanner.nextInt();
+
+        Node current = playersList.getHead();
+        while (current != null && current.next != current) {
+            for (int i = 1; i < M; i++) {
+                current = current.next;
+            }
+            Node eliminatedNode = current.next;
+            eliminationQueue.enqueue(eliminatedNode.data);
+            System.out.println("Eliminated: " + eliminatedNode.data);
+            playersList.delete(current, eliminatedNode);
+            current = eliminatedNode.next;
+        }
+
+        if (current != null) {
+            System.out.println("Winner: " + current.data);
+            System.out.print("Elimination sequence: ");
+            eliminationQueue.displayQueue();
+        }
+	}
+}

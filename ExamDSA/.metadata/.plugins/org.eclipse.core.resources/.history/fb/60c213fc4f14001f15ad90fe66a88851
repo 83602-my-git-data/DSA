@@ -1,0 +1,81 @@
+package Tester;
+
+import java.util.Scanner;
+
+import DSA.Queue;
+import DSA.SingleCircularLinkedList;
+import DSA.SingleCircularLinkedList.Node;
+
+public class Tester {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		SingleCircularLinkedList list = new SingleCircularLinkedList();
+		Queue queue = new Queue();
+		
+        boolean flag = true;
+		while (flag) {
+			System.out.println();
+			System.out.println("1. Add Person");
+			System.out.println("2. Display Persons");
+			System.out.println("3. Delete Last Persons");
+			System.out.println("4. Play Game");
+			System.out.println("0. Exit");
+			System.out.print("Choose an option: ");
+			int choice = scanner.nextInt();
+			scanner.nextLine(); // Consume newline
+
+			switch (choice) {
+			case 0 :
+				System.out.println("Thank you");
+				flag = false;
+				break;
+			case 1:
+				
+				System.out.print("Enter player name: ");
+				String name = scanner.nextLine();
+				list.addLast(name);
+				break;
+			case 2:
+				list.display();
+				break;
+			case 3:
+			{
+				list.deleteLast();
+				list.display();
+			}
+				break;
+			case 4:{
+				System.out.print("Enter the number of passes (M): ");
+		        int M = scanner.nextInt();
+		        playGame(list, queue, scanner, M);
+			}
+				break;
+			default:
+				System.out.println("Invalid choice! Try again.");
+			}
+		}
+	}
+	
+	public static void playGame(SingleCircularLinkedList sl, Queue qu, int m) {
+	
+        Node head = sl.getHead();
+        
+        while (head != null && head.getNext() != head) {
+            for (int i = 1; i < m; i++) {
+                head = head.getNext();
+            }
+            Node eliminatedPerson = head.getNext();
+            qu.push(eliminatedPerson.getData());
+            System.out.println("Eliminated: " + eliminatedPerson.getData());
+            sl.delete(head, eliminatedPerson); 
+            head = eliminatedPerson.getNext();
+        }
+
+        if (head != null) {
+            System.out.println("Winner: " + head.getData());
+            System.out.println("*****************************");
+            System.out.print("Elimination sequence: ");
+            qu.displayQueue();
+        }
+	}
+}
